@@ -1,0 +1,79 @@
+.card-container {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+	position: relative;
+	width: 750px;
+
+	& .card {
+		border: 1px solid #000000b6;
+		transition: transform 200ms ease;
+	}
+
+	& .card:nth-child(1) {
+		left: 0;
+		position: absolute;
+		transform: rotate(-3deg) translateY(8px);
+		z-index: 3;
+
+		&:hover {
+			transform: rotate(-3deg) translateY(0);
+		}
+	}
+	& .card:nth-child(2) {
+		z-index: 2;
+
+		&:hover {
+			transform: translateY(-10px);
+		}
+	}
+	& .card:nth-child(3) {
+		position: absolute;
+		right: 0;
+		transform: rotate(3deg) translateY(8px);
+		z-index: 1;
+
+		&:hover {
+			transform: rotate(3deg) translateY(0);
+		}
+	}
+}
+.buttons-container {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+	width: 300px;
+}
+.pokemon-id {
+	background-color: #fff;
+	border: 1px solid #888;
+	font-size: 30px;
+	padding: 0.5rem;
+	user-select: none;
+}
+
+.card-container.card1 .card:nth-child(1) {
+	position: relative;
+	transform: rotate(0deg) translateY(0);
+
+	&:hover {
+		transform: translateY(-10px);
+	}
+}
+.card-container.card2 .card:nth-child(1) {
+	position: relative;
+	transform: rotate(-3deg) translateY(0) translateX(10px);
+
+	&:hover {
+		transform: rotate(-3deg) translateY(-10px) translateX(10px);
+	}
+}
+.card-container.card2 .card:nth-child(2) {
+	position: relative;
+	transform: rotate(3deg) translateY(0) translateX(-10px);
+
+	&:hover {
+		transform: rotate(3deg) translateY(-10px) translateX(-10px);
+	}
+}

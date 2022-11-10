@@ -1,0 +1,37 @@
+@use 'variables' as v;
+
+.button {
+	aspect-ratio: 1/1;
+	background-color: v.$button-color;
+	border: none;
+	border-radius: 50%;
+	color: #fff;
+	cursor: pointer;
+	font-size: 2rem;
+	font-weight: bold;
+	position: relative;
+	transition: transform 100ms ease;
+	width: 60px;
+
+	&__box {
+		position: relative;
+	}
+
+	&__box__bg {
+		aspect-ratio: 1/1;
+		background-color: v.$card-background;
+		border-radius: 50%;
+		pointer-events: none;
+		position: absolute;
+		top: 6px;
+		width: 60px;
+		z-index: -1;
+	}
+
+	&:hover {
+		transform: scale(1.025);
+	}
+	&:active {
+		transform: translateY(4px);
+	}
+}

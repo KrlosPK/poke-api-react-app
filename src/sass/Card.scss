@@ -1,0 +1,43 @@
+@use 'variables' as v;
+.card {
+	align-items: center;
+	aspect-ratio: 7/9;
+	background-color: v.$card-background;
+	border-radius: 1rem;
+	box-shadow: 3px 3px 10px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	width: 280px;
+
+	&__name {
+		background-color: v.$button-color;
+		color: #fff;
+		font-size: 1.5rem;
+		padding: 0.6rem 1.2rem;
+		position: absolute;
+		right: 0;
+		text-align: center;
+		text-transform: capitalize;
+		top: 0;
+		width: 60%;
+	}
+	&__circle {
+		align-items: center;
+		aspect-ratio: 1/1;
+		background-color: v.$img-background;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		user-select: none;
+		width: 60%;
+
+		& img {
+			-webkit-user-drag: none;
+			user-select: none;
+			width: 100%;
+		}
+	}
+}
