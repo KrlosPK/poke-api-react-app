@@ -10,11 +10,19 @@ import './sass/App.scss';
 const App = () => {
 	const [pokemonId, setPokemonId] = useState(1);
 	const [pokemonEvolutions, setPokemonEvolutions] = useState([]);
+	const [isFetching, setIsFetching] = useState(true);
 
 	useEffect(() => {
-		getEvolutions(pokemonId);
+		setIsFetching(true);
+		getEvolutions(pokemonId)
+			.catch((e) => console.log(e))
+			.finally(() => setIsFetching(false));
 	}, [pokemonId]);
 
+	/**
+	 * I'm fetching data from an API, then I'm pushing the data into an array, and then I'm setting the
+	 * state of the array.
+	 */
 	const getEvolutions = async (id) => {
 		/* Fetching de Datos */
 		const URL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
@@ -44,6 +52,11 @@ const App = () => {
 		setPokemonEvolutions(pokemonEvolutions);
 	};
 
+	/**
+	 * It takes a name as an argument, and returns the URL of the official artwork of the Pokemon with
+	 * that name.
+	 * @returns The URL of the image.
+	 */
 	const getImages = async (name) => {
 		const URL = `https://pokeapi.co/api/v2/pokemon/${name}/`;
 		const res = await fetch(URL);
@@ -51,6 +64,37 @@ const App = () => {
 		return data.sprites.other['official-artwork'].front_default;
 	};
 
+	if (isFetching)
+		return (
+			<>
+				<div
+					className={`card-container card${pokemonEvolutions.length}`}
+				>
+					{pokemonEvolutions.map((pokemon) => {
+						return (
+							<Card
+								key={pokemon[0]}
+								pokeName={pokemon[0]}
+								pokeImg={pokemon[1]}
+							/>
+						);
+					})}
+				</div>
+				<div className='buttons-container'>
+					<Button
+						icon={<TiArrowLeftOutline />}
+						loading={isFetching}
+					/>
+					<span className='pokemon-id'>{pokemonId}</span>
+					<Button
+						icon={<TiArrowRightOutline />}
+						loading={isFetching}
+					/>
+				</div>
+			</>
+		);
+
+	/* Returning the JSX code. */
 	return (
 		<>
 			<div className={`card-container card${pokemonEvolutions.length}`}>
