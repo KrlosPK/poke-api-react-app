@@ -6,7 +6,7 @@ const Button = ({ icon, handleClick }) => {
 			<button className='button' onClick={handleClick}>
 				{icon}
 			</button>
-            <div className="button__box__bg"></div>
+			<div className='button__box__bg'></div>
 		</div>
 	);
 };

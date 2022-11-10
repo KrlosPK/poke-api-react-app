@@ -46,11 +46,16 @@
 	width: 300px;
 }
 .pokemon-id {
+	align-items: center;
+	aspect-ratio: 1/1;
 	background-color: #fff;
 	border: 1px solid #888;
+	border-radius: 50%;
+	display: flex;
 	font-size: 30px;
-	padding: 0.5rem;
+	justify-content: center;
 	user-select: none;
+	width: 60px;
 }
 
 .card-container.card1 .card:nth-child(1) {

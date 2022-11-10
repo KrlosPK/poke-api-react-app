@@ -4,7 +4,12 @@ const Card = ({ pokeName, pokeImg }) => {
 		<div className='card'>
 			<p className='card__name'>{pokeName}</p>
 			<div className='card__circle'>
-				<img src={pokeImg} alt={`pokemon ${pokeName}`} className='card__img' />
+				<img
+					loading='lazy'
+					src={pokeImg}
+					alt={`pokemon ${pokeName}`}
+					className='card__img'
+				/>
 			</div>
 		</div>
 	);
